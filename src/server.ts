@@ -41,12 +41,8 @@ const setupExpressServer = () => {
 
   app.post("/location", async (req, res) => {
     const locationRepository = await getRepository(Location);
-    // const newLocation = new Location();
-    // newLocation.line1 = "sotetsu";
-    // newLocation.line2 = "toyoko";
-    // newLocation.station = "yokohama";
     const savedData = await locationRepository.save(req.body);
-    res.send(savedData);
+    res.status(201).send(savedData);
   });
 
   app.delete("/location/:id", async (req, res) => {
