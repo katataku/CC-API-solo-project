@@ -50,9 +50,11 @@ describe("API solo project", () => {
     chai.expect(init_cnt + 1).to.equal(last_cnt);
   });
 
-  it.skip("should return 200 in multiple requests", async () => {
+  it("should return 200 in multiple requests", async () => {
     const res = await request.get("/hello");
     chai.expect(res).to.have.status(200);
+    request = chai.request(server);
+
     const res2 = await request.get("/hello");
     chai.expect(res2).to.have.status(200);
   });

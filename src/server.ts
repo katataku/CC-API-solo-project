@@ -17,7 +17,6 @@ const setupExpressServer = () => {
 
   app.get("/hello", async (req, res) => {
     const userRepository = getRepository(User);
-
     const users = await userRepository.find();
     res.send(users);
   });
