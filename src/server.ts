@@ -28,19 +28,15 @@ const setupExpressServer = () => {
     res.send(locations);
   });
 
-  app.post("/location", (req, res) => {
-    DatabaseConnectionManager.connect()
-      .then(async (connection) => {
-        const newLocation = new Location();
-        newLocation.line1 = "sotetsu";
-        newLocation.line2 = "toyoko";
-        newLocation.station = "yokohama";
-        console.log(newLocation);
-        await connection.manager.save(req.body);
-
-        res.send("saved: " + newLocation);
-      })
-      .catch((e) => console.log(e));
+  app.post("/location", async (req, res) => {
+    const locationRepository = await getRepository(Location);
+    const newLocation = new Location();
+    newLocation.line1 = "sotetsu";
+    newLocation.line2 = "toyoko";
+    newLocation.station = "yokohama";
+    console.log(newLocation);
+    await locationRepository.save(req.body);
+    res.send(newLocation);
   });
   app.delete("/location/:id", (req, res) => {
     DatabaseConnectionManager.connect()

@@ -33,7 +33,7 @@ describe("API solo project", () => {
     chai.expect(res.body[0].station).to.equal("yokohama");
   });
 
-  it.skip("should post and delete Location", async () => {
+  it("should post Location", async () => {
     const res1 = await request.get("/location");
     const init_cnt = res1.body.length;
 
@@ -42,8 +42,10 @@ describe("API solo project", () => {
       line2: "testline2",
       station: "testStation",
     };
+    request = chai.request(server);
     await request.post("/location").send(postData);
 
+    request = chai.request(server);
     const res2 = await request.get("/location");
     const last_cnt = res2.body.length;
 
