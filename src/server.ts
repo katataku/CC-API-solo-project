@@ -23,7 +23,20 @@ const setupExpressServer = () => {
 
   app.get("/location", async (req, res) => {
     const locationRepository = getRepository(Location);
-    const locations = await locationRepository.find();
+
+    let locations;
+
+    if (
+      typeof req.query.line1 !== "undefined" &&
+      typeof req.query.line2 !== "undefined"
+    ) {
+      locations = await locationRepository.findOne({
+        line1: req.query.line1,
+        line2: req.query.line2,
+      });
+    } else {
+      locations = await locationRepository.find();
+    }
 
     res.send(locations);
   });
@@ -34,20 +47,14 @@ const setupExpressServer = () => {
     newLocation.line1 = "sotetsu";
     newLocation.line2 = "toyoko";
     newLocation.station = "yokohama";
-    console.log(newLocation);
-    await locationRepository.save(req.body);
-    res.send(newLocation);
+    const savedData = await locationRepository.save(req.body);
+    res.send(savedData);
   });
-  app.delete("/location/:id", (req, res) => {
-    DatabaseConnectionManager.connect()
-      .then(async (connection) => {
-        console.log(req.params.id);
-        const target = { id: req.params.id };
-        await connection.manager.delete(Location, target);
-        await connection.close();
-        res.send("deleted");
-      })
-      .catch((e) => console.log(e));
+  app.delete("/location/:id", async (req, res) => {
+    const target = { id: req.params.id };
+    const locationRepository = await getRepository(Location);
+    await locationRepository.delete(target);
+    res.send("deleted");
   });
 
   app.get("/hellojson", (req, res) => {

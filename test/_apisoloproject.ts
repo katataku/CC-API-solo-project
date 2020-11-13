@@ -43,13 +43,20 @@ describe("API solo project", () => {
       station: "testStation",
     };
     request = chai.request(server);
-    await request.post("/location").send(postData);
-
+    const resPost = await request.post("/location").send(postData);
     request = chai.request(server);
     const res2 = await request.get("/location");
-    const last_cnt = res2.body.length;
+    const post_cnt = res2.body.length;
 
-    chai.expect(init_cnt + 1).to.equal(last_cnt);
+    chai.expect(init_cnt + 1).to.equal(post_cnt);
+
+    request = chai.request(server);
+    const resDelete = await request.delete("/location/" + resPost.body.id);
+
+    request = chai.request(server);
+    const res3 = await request.get("/location");
+    const delete_cnt = res3.body.length;
+    chai.expect(init_cnt).to.equal(delete_cnt);
   });
 
   it("should return 200 in multiple requests", async () => {
@@ -59,5 +66,11 @@ describe("API solo project", () => {
 
     const res2 = await request.get("/hello");
     chai.expect(res2).to.have.status(200);
+  });
+
+  it("should get search", async () => {
+    const res = await request.get("/location?line1=sotetsu&line2=toyoko");
+    chai.expect(res).to.have.status(200);
+    chai.expect(res.body.station).to.equal("yokohama");
   });
 });

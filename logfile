@@ -41,3 +41,9 @@
 2020-11-13 16:13:10.398 JST [57877] ERROR:  null value in column "line2" of relation "location" violates not-null constraint
 2020-11-13 16:13:10.398 JST [57877] DETAIL:  Failing row contains (1, sotetsu, null, yokohama).
 2020-11-13 16:13:10.398 JST [57877] STATEMENT:  INSERT INTO "location"("line1", "line2", "station") VALUES ($1, DEFAULT, $2) RETURNING "id"
+2020-11-13 19:24:36.775 JST [63838] ERROR:  invalid input syntax for type integer: "undefined"
+2020-11-13 19:24:36.775 JST [63838] STATEMENT:  DELETE FROM "location" WHERE "id" = $1
+2020-11-13 19:31:36.133 JST [64120] ERROR:  invalid input syntax for type integer: "undefined"
+2020-11-13 19:31:36.133 JST [64120] STATEMENT:  DELETE FROM "location" WHERE "id" = $1
+2020-11-13 19:31:58.258 JST [64146] ERROR:  invalid input syntax for type integer: "undefined"
+2020-11-13 19:31:58.258 JST [64146] STATEMENT:  DELETE FROM "location" WHERE "id" = $1
