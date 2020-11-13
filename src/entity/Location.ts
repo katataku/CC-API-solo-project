@@ -14,3 +14,4 @@ export class Location {
   @Column()
   station: string;
 }
+export default Location;

@@ -14,6 +14,8 @@
     "echotest": "echo my yarn test doen",
     "test": "NODE_PATH=src mocha  --inspect -r ts-node/register -r dotenv/config  test/_apisoloproject.ts",
     "testConnection": "ts-node -r dotenv/config src/scripts/testConnection.ts",
+    "seeder": "ts-node -r dotenv/config ./node_modules/typeorm-seeding/dist/cli.js",
+    "seed": "yarn seeder --configName src/ormconfig.ts seed",
     "dbstart": "pg_ctl -D ./var/postgres -l logfile start",
     "dbstop": "pg_ctl -D ./var/postgres -l logfile stop"
   },
