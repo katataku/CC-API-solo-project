@@ -1,13 +1,12 @@
-//const { text } = require("express");
-
 const { createConnection } = require("typeorm");
 const { User } = require("./entity/User");
+const { Location } = require("./entity/Location");
 const express = require("express");
+//const DatabaseConnectionManager = require("./database")
+import { getRepository, Repository, DeleteResult } from "typeorm";
 
+import DatabaseConnectionManager from "./database";
 const setupExpressServer = () => {
-  //  import { createConnection } from "typeorm";
-  //  import { User } from "../src/entity/User.ts";
-  /* return configured express app */
   const app = express();
   app.use(express.json());
 
@@ -16,12 +15,42 @@ const setupExpressServer = () => {
     res.send("teapot");
   });
 
-  app.get("/hello", (req, res) => {
-    createConnection()
+  app.get("/hello", async (req, res) => {
+    const userRepository = getRepository(User);
+
+    const users = await userRepository.find();
+    res.send(users);
+  });
+
+  app.get("/location", async (req, res) => {
+    const locationRepository = getRepository(Location);
+    const locations = await locationRepository.find();
+
+    res.send(locations);
+  });
+
+  app.post("/location", (req, res) => {
+    DatabaseConnectionManager.connect()
       .then(async (connection) => {
-        const users = await connection.manager.find(User);
-        console.log(users);
-        res.send(users);
+        const newLocation = new Location();
+        newLocation.line1 = "sotetsu";
+        newLocation.line2 = "toyoko";
+        newLocation.station = "yokohama";
+        console.log(newLocation);
+        await connection.manager.save(req.body);
+
+        res.send("saved: " + newLocation);
+      })
+      .catch((e) => console.log(e));
+  });
+  app.delete("/location/:id", (req, res) => {
+    DatabaseConnectionManager.connect()
+      .then(async (connection) => {
+        console.log(req.params.id);
+        const target = { id: req.params.id };
+        await connection.manager.delete(Location, target);
+        await connection.close();
+        res.send("deleted");
       })
       .catch((e) => console.log(e));
   });

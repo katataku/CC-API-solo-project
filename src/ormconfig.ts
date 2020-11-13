@@ -21,7 +21,7 @@ export = {
   port: process.env.DB_PORT || 5432,
   username: process.env.DB_USER || "taku",
   password: process.env.DB_PASSWORD || "taku",
-  database: process.env.DB_NAME || "expense_manager",
+  database: process.env.DB_NAME || "apisoloproject",
   entities: ["src/entities/**/*.ts"],
   migrations: ["src/migrations/**/*.ts"],
   seeds: ["src/seeds/**/*.ts"],

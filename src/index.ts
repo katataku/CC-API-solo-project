@@ -1,10 +1,13 @@
 import "reflect-metadata";
+import DatabaseConnectionManager from "./database";
 
 const { setupExpressServer } = require("./server");
 const PORT = process.env.PORT || 3000;
 const app = setupExpressServer();
-app.listen(PORT, () => {
-  console.log("Server running on port", PORT);
+DatabaseConnectionManager.connect().then(() => {
+  app.listen(PORT, () => {
+    console.log("Server running on port", PORT);
+  });
 });
 
 // createConnection().then(async connection => {

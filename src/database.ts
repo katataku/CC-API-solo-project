@@ -11,9 +11,8 @@ class DatabaseConnectionManager {
    *   of having to create a new connection for every database request.
    */
   public static async connect() {
-    const connection = await createConnection(
-      dbConfig as ConnectionOptions /* ⬅️ You can ignore the `as` operator for now */
-    );
+    const connection = await createConnection();
+    //      dbConfig as ConnectionOptions /* ⬅️ You can ignore the `as` operator for now */
     // https://github.com/typeorm/typeorm/issues/3286
     // const driver = connection.driver;
     // driver.postgres.defaults.parseInputDatesAsUTC = true;

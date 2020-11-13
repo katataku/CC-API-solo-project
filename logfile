@@ -33,3 +33,11 @@
 2020-11-13 11:43:40.127 JST [50201] STATEMENT:  select * from public;
 2020-11-13 11:50:56.666 JST [50394] ERROR:  relation "public.ser" does not exist at character 15
 2020-11-13 11:50:56.666 JST [50394] STATEMENT:  select * from public.ser;
+2020-11-13 15:11:15.177 JST [55032] ERROR:  column "firstName" of relation "user" contains null values
+2020-11-13 15:11:15.177 JST [55032] STATEMENT:  ALTER TABLE "user" ADD "firstName" character varying NOT NULL
+2020-11-13 15:11:43.634 JST [55051] ERROR:  column "firstName" of relation "user" contains null values
+2020-11-13 15:11:43.634 JST [55051] STATEMENT:  ALTER TABLE "user" ADD "firstName" character varying NOT NULL
+2020-11-13 15:39:09.649 JST [56334] FATAL:  database "expense_manager" does not exist
+2020-11-13 16:13:10.398 JST [57877] ERROR:  null value in column "line2" of relation "location" violates not-null constraint
+2020-11-13 16:13:10.398 JST [57877] DETAIL:  Failing row contains (1, sotetsu, null, yokohama).
+2020-11-13 16:13:10.398 JST [57877] STATEMENT:  INSERT INTO "location"("line1", "line2", "station") VALUES ($1, DEFAULT, $2) RETURNING "id"
