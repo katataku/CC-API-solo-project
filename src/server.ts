@@ -43,13 +43,14 @@ const setupExpressServer = () => {
 
   app.post("/location", async (req, res) => {
     const locationRepository = await getRepository(Location);
-    const newLocation = new Location();
-    newLocation.line1 = "sotetsu";
-    newLocation.line2 = "toyoko";
-    newLocation.station = "yokohama";
+    // const newLocation = new Location();
+    // newLocation.line1 = "sotetsu";
+    // newLocation.line2 = "toyoko";
+    // newLocation.station = "yokohama";
     const savedData = await locationRepository.save(req.body);
     res.send(savedData);
   });
+
   app.delete("/location/:id", async (req, res) => {
     const target = { id: req.params.id };
     const locationRepository = await getRepository(Location);
@@ -57,12 +58,13 @@ const setupExpressServer = () => {
     res.send("deleted");
   });
 
-  app.get("/hellojson", (req, res) => {
-    res.json({ hello: "world" });
-  });
-
-  app.get("/greet", (req, res) => {
-    res.send(`Hello ${req.query.name}!`);
+  app.put("/location/:id", async (req, res) => {
+    const locationRepository = await getRepository(Location);
+    const target = {
+      id: req.params.id,
+    };
+    await locationRepository.update(target, req.body);
+    res.send(req.body);
   });
 
   app.get("/:a/plus/:b", (req, res) => {

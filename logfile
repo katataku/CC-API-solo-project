@@ -47,3 +47,24 @@
 2020-11-13 19:31:36.133 JST [64120] STATEMENT:  DELETE FROM "location" WHERE "id" = $1
 2020-11-13 19:31:58.258 JST [64146] ERROR:  invalid input syntax for type integer: "undefined"
 2020-11-13 19:31:58.258 JST [64146] STATEMENT:  DELETE FROM "location" WHERE "id" = $1
+2020-11-13 23:08:11.298 JST [49516] LOG:  received smart shutdown request
+2020-11-13 23:08:11.302 JST [49516] LOG:  background worker "logical replication launcher" (PID 49523) exited with exit code 1
+2020-11-13 23:08:11.303 JST [49518] LOG:  shutting down
+2020-11-13 23:08:11.321 JST [49516] LOG:  database system is shut down
+2020-11-13 23:13:36.833 JST [1201] LOG:  starting PostgreSQL 13.0 on x86_64-apple-darwin19.6.0, compiled by Apple clang version 12.0.0 (clang-1200.0.32.2), 64-bit
+2020-11-13 23:13:36.844 JST [1201] LOG:  listening on IPv6 address "::1", port 5432
+2020-11-13 23:13:36.844 JST [1201] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-11-13 23:13:36.845 JST [1201] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2020-11-13 23:13:36.849 JST [1202] LOG:  database system was shut down at 2020-11-13 23:08:11 JST
+2020-11-13 23:13:36.855 JST [1201] LOG:  database system is ready to accept connections
+2020-11-13 23:14:48.879 JST [1201] LOG:  received fast shutdown request
+2020-11-13 23:14:48.880 JST [1201] LOG:  aborting any active transactions
+2020-11-13 23:14:48.882 JST [1201] LOG:  background worker "logical replication launcher" (PID 1208) exited with exit code 1
+2020-11-13 23:14:48.882 JST [1203] LOG:  shutting down
+2020-11-13 23:14:48.894 JST [1201] LOG:  database system is shut down
+2020-11-13 23:14:53.228 JST [1331] LOG:  starting PostgreSQL 13.0 on x86_64-apple-darwin19.6.0, compiled by Apple clang version 12.0.0 (clang-1200.0.32.2), 64-bit
+2020-11-13 23:14:53.231 JST [1331] LOG:  listening on IPv6 address "::1", port 5432
+2020-11-13 23:14:53.231 JST [1331] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-11-13 23:14:53.232 JST [1331] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2020-11-13 23:14:53.237 JST [1332] LOG:  database system was shut down at 2020-11-13 23:14:48 JST
+2020-11-13 23:14:53.241 JST [1331] LOG:  database system is ready to accept connections
