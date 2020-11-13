@@ -23,3 +23,13 @@
 2020-11-13 11:19:36.729 JST [49174] LOG:  background worker "logical replication launcher" (PID 49181) exited with exit code 1
 2020-11-13 11:19:36.729 JST [49176] LOG:  shutting down
 2020-11-13 11:19:36.748 JST [49174] LOG:  database system is shut down
+2020-11-13 11:28:02.911 JST [49516] LOG:  starting PostgreSQL 13.0 on x86_64-apple-darwin19.6.0, compiled by Apple clang version 12.0.0 (clang-1200.0.32.2), 64-bit
+2020-11-13 11:28:02.919 JST [49516] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-11-13 11:28:02.919 JST [49516] LOG:  listening on IPv6 address "::1", port 5432
+2020-11-13 11:28:02.921 JST [49516] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2020-11-13 11:28:02.938 JST [49517] LOG:  database system was shut down at 2020-11-13 11:19:36 JST
+2020-11-13 11:28:02.955 JST [49516] LOG:  database system is ready to accept connections
+2020-11-13 11:43:40.127 JST [50201] ERROR:  relation "public" does not exist at character 15
+2020-11-13 11:43:40.127 JST [50201] STATEMENT:  select * from public;
+2020-11-13 11:50:56.666 JST [50394] ERROR:  relation "public.ser" does not exist at character 15
+2020-11-13 11:50:56.666 JST [50394] STATEMENT:  select * from public.ser;

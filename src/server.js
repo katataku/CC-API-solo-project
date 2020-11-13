@@ -1,6 +1,12 @@
 //const { text } = require("express");
+
+const { createConnection } = require("typeorm");
+const { User } = require("./entity/User");
 const express = require("express");
+
 const setupExpressServer = () => {
+  //  import { createConnection } from "typeorm";
+  //  import { User } from "../src/entity/User.ts";
   /* return configured express app */
   const app = express();
   app.use(express.json());
@@ -11,7 +17,13 @@ const setupExpressServer = () => {
   });
 
   app.get("/hello", (req, res) => {
-    res.send("worldhoghoge");
+    createConnection()
+      .then(async (connection) => {
+        const users = await connection.manager.find(User);
+        console.log(users);
+        res.send(users);
+      })
+      .catch((e) => console.log(e));
   });
 
   app.get("/hellojson", (req, res) => {
