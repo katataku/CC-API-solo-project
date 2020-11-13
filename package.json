@@ -1,5 +1,5 @@
 {
-  "name": "API-Solo-Project",
+  "name": "api-solo-project",
   "version": "1.0.0",
   "description": "solo",
   "main": "index.js",
@@ -12,7 +12,9 @@
     "dev": "nodemon ./src/index.js",
     "lint": "eslint --fix --ext .js .",
     "echotest": "echo my yarn test doen",
-    "test": "mocha spec && yarn lint"
+    "test": "mocha test",
+    "dbstart": "pg_ctl -D ./var/postgres -l logfile start",
+    "dbstop": "pg_ctl -D ./var/postgres -l logfile stop"
   },
   "husky": {
     "hooks": {

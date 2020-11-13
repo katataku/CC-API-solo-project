@@ -1,0 +1,25 @@
+2020-11-13 11:15:02.430 JST [49042] LOG:  starting PostgreSQL 13.0 on x86_64-apple-darwin19.6.0, compiled by Apple clang version 12.0.0 (clang-1200.0.32.2), 64-bit
+2020-11-13 11:15:02.438 JST [49042] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-11-13 11:15:02.439 JST [49042] LOG:  listening on IPv6 address "::1", port 5432
+2020-11-13 11:15:02.441 JST [49042] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2020-11-13 11:15:02.457 JST [49043] LOG:  database system was shut down at 2020-11-13 11:14:49 JST
+2020-11-13 11:15:02.476 JST [49042] LOG:  database system is ready to accept connections
+2020-11-13 11:15:48.423 JST [49042] LOG:  received fast shutdown request
+2020-11-13 11:15:48.424 JST [49042] LOG:  aborting any active transactions
+2020-11-13 11:15:48.431 JST [49042] LOG:  background worker "logical replication launcher" (PID 49049) exited with exit code 1
+2020-11-13 11:15:48.431 JST [49044] LOG:  shutting down
+2020-11-13 11:15:48.451 JST [49042] LOG:  database system is shut down
+2020-11-13 11:16:41.835 JST [49174] LOG:  starting PostgreSQL 13.0 on x86_64-apple-darwin19.6.0, compiled by Apple clang version 12.0.0 (clang-1200.0.32.2), 64-bit
+2020-11-13 11:16:41.846 JST [49174] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2020-11-13 11:16:41.846 JST [49174] LOG:  listening on IPv6 address "::1", port 5432
+2020-11-13 11:16:41.848 JST [49174] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2020-11-13 11:16:41.860 JST [49175] LOG:  database system was shut down at 2020-11-13 11:15:48 JST
+2020-11-13 11:16:41.876 JST [49174] LOG:  database system is ready to accept connections
+2020-11-13 11:18:49.438 JST [49211] ERROR:  syntax error at or near "q" at character 1
+2020-11-13 11:18:49.438 JST [49211] STATEMENT:  q
+	q;
+2020-11-13 11:19:36.724 JST [49174] LOG:  received fast shutdown request
+2020-11-13 11:19:36.725 JST [49174] LOG:  aborting any active transactions
+2020-11-13 11:19:36.729 JST [49174] LOG:  background worker "logical replication launcher" (PID 49181) exited with exit code 1
+2020-11-13 11:19:36.729 JST [49176] LOG:  shutting down
+2020-11-13 11:19:36.748 JST [49174] LOG:  database system is shut down
