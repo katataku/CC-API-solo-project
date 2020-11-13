@@ -1,0 +1,56 @@
+{
+  "name": "API-Solo-Project",
+  "version": "1.0.0",
+  "description": "solo",
+  "main": "index.js",
+  "repository": "git@github.com:codechrysalis/lecture.express.git",
+  "author": "Felix Kirmse <felix@codechrysalis.io>",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "start": "node ./src/index.js",
+    "dev": "nodemon ./src/index.js",
+    "lint": "eslint --fix --ext .js .",
+    "echotest": "echo my yarn test doen",
+    "test": "mocha spec && yarn lint"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "dependencies": {
+    "@types/chai": "^4.2.11",
+    "@types/chai-http": "^4.2.0",
+    "@types/lodash.pick": "^4.4.6",
+    "@types/mocha": "^7.0.2",
+    "@types/pg": "^7.14.3",
+    "@types/uuid": "^7.0.2",
+    "bcrypt": "^4.0.1",
+    "body-parser": "^1.19.0",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "husky": "^4.2.3",
+    "jsonwebtoken": "^8.5.1",
+    "lodash.pick": "^4.4.0",
+    "mocha": "^7.1.1",
+    "pg": "^7.18.2",
+    "prettier": "^2.0.2",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.2.24",
+    "typeorm-seeding": "^1.6.1",
+    "uuid": "^7.0.2"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "eslint": "^6.1.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-config-problems": "^3.0.1",
+    "eslint-plugin-prettier": "^3.1.0",
+    "nodemon": "^1.19.1",
+    "pretty-quick": "^1.11.1"
+  }
+}
