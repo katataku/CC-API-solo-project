@@ -30,7 +30,7 @@ SSS
 
 1. Select
 
-1. Station
+1. Show the best Station
 
 ---
 
@@ -72,7 +72,7 @@ SSS
 
 - Docs
 
-  - Merp
+  - marp
 
 ---
 
@@ -98,3 +98,13 @@ SSS
 ## GitHub URL
 
 https://github.com/katataku/CC-API-solo-project
+
+---
+
+## Future Works
+
+- Seeding
+- Migrations
+- language(Japanese)
+- Multistaions
+- Shared Operation

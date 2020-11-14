@@ -61,7 +61,6 @@ const setupExpressServer = () => {
   });
 
   app.post("/location", async (req, res) => {
-    console.log(req.body);
     const locationRepository = await getRepository(Location);
     const savedData = await locationRepository.save(req.body);
     res.status(201).send(savedData);

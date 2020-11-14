@@ -5,6 +5,19 @@
     <title>SSS</title>
   </head>
   <style>
+    button {
+      border-radius: 100vh;
+      color: #fff;
+      background-color: #eb6100;
+      border: none;
+    }
+
+    button:hover {
+      color: #fff;
+      background: #f56500;
+      border: none;
+    }
+
     .style1 {
       font-family: "Avenir", Helvetica, Arial, sans-serif;
       -webkit-font-smoothing: antialiased;
@@ -13,25 +26,50 @@
       color: #2c3e50;
       margin-top: 120px;
     }
+
+    .v-enter-active,
+    .v-move {
+      transition: opacity 1s, transform 1s;
+    }
+
+    .v-enter {
+      opacity: 0;
+      transform: translateY(-2px);
+    }
+
+    .v-leave-to {
+      opacity: 0;
+      transform: translateY(2px);
+    }
   </style>
 
   <body>
     <div id="app" class="style1">
-      <h1>{{ message }}</h1>
-      <div>
-        <p>line1 is: {{ inputline1 }}</p>
-        <p>line2 is: {{ inputline2 }}</p>
-        <p>station is: {{ station }}</p>
-      </div>
+      <transition appear enter-active-class="animated bounceIn">
+        <h1>{{ message }}</h1>
+      </transition>
+      <transition appear mode="out-in">
+        <div>
+          <p>line1 : {{ inputline1 }}</p>
+          <p>line2 : {{ inputline2 }}</p>
+          <p v-show="true">station : {{ station }}</p>
+        </div>
+      </transition>
 
-      <input v-model="inputline1" placeholder="STEP1: input line1" />
-      <button v-on:click="search1">SEARCH</button>
+      <transition appear>
+        <p><input v-model="inputline1" placeholder="STEP1: input line1" /></p>
+      </transition>
+      <transition appear>
+        <p><button v-on:click="search1">SEARCH</button></p>
+      </transition>
 
       <p>{{ message2 }}</p>
 
-      <p v-for="lineee in lines">
-        <button v-on:click="search2(lineee.line2)">{{ lineee.line2 }}</button>
-      </p>
+      <transition-group tag="p" class="list" @before-enter="beforeEnter">
+        <p v-for="(lineee,index) in lines" :key="lineee.line2">
+          <button v-on:click="search2(lineee.line2)">{{ lineee.line2 }}</button>
+        </p>
+      </transition-group>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -51,6 +89,10 @@
         },
         mounted: function () {},
         methods: {
+          beforeEnter(el) {
+            el.style.transitionDelay =
+              1000 * parseInt(el.dataset.index, 10) + "ms";
+          },
           search1: function () {
             this.message2 = "STEP2: SELECT line2";
             axios.defaults.headers.get["Access-Control-Allow-Origin"] = "*";
@@ -67,7 +109,9 @@
               .catch((response) => console.log(response));
           },
           search2: function (line2) {
-            this.inputline2 = line2;
+            this.inputline2 = "";
+            this.station = "";
+
             axios.defaults.headers.get["Access-Control-Allow-Origin"] = "*";
             axios.defaults.headers.get["Content-Type"] =
               "application/json;charset=utf-8";
@@ -81,6 +125,7 @@
               .get(getURL)
               .then((response) => {
                 console.log(response.data);
+                this.inputline2 = line2;
                 this.station = response.data.station;
               })
               .catch((response) => console.log(response));
