@@ -2,6 +2,8 @@ const { createConnection } = require("typeorm");
 const { User } = require("./entity/User");
 const { Location } = require("./entity/Location");
 const express = require("express");
+const _ = require("underscore");
+
 import { getRepository, Repository, DeleteResult } from "typeorm";
 
 const setupExpressServer = () => {
@@ -19,7 +21,26 @@ const setupExpressServer = () => {
     res.send(users);
   });
 
+  app.get("/listLocations", async (req, res) => {
+    const locationRepository = getRepository(Location);
+    let target = {};
+
+    if (typeof req.query.line1 !== "undefined") {
+      target = {
+        line1: req.query.line1,
+      };
+    }
+
+    let locations = await locationRepository.find(target);
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
+
+    res.send(locations.map((x) => _.pick(x, "line1", "line2")));
+  });
+
   app.get("/location", async (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
     const locationRepository = getRepository(Location);
 
     let locations;
@@ -40,6 +61,7 @@ const setupExpressServer = () => {
   });
 
   app.post("/location", async (req, res) => {
+    console.log(req.body);
     const locationRepository = await getRepository(Location);
     const savedData = await locationRepository.save(req.body);
     res.status(201).send(savedData);

@@ -68,3 +68,21 @@
 2020-11-13 23:14:53.232 JST [1331] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
 2020-11-13 23:14:53.237 JST [1332] LOG:  database system was shut down at 2020-11-13 23:14:48 JST
 2020-11-13 23:14:53.241 JST [1331] LOG:  database system is ready to accept connections
+2020-11-14 02:07:26.248 JST [8236] ERROR:  null value in column "line1" of relation "location" violates not-null constraint
+2020-11-14 02:07:26.248 JST [8236] DETAIL:  Failing row contains (67, null, null, null).
+2020-11-14 02:07:26.248 JST [8236] STATEMENT:  INSERT INTO "location"("line1", "line2", "station") VALUES (DEFAULT, DEFAULT, DEFAULT) RETURNING "id"
+2020-11-14 02:09:17.160 JST [8288] ERROR:  null value in column "line1" of relation "location" violates not-null constraint
+2020-11-14 02:09:17.160 JST [8288] DETAIL:  Failing row contains (68, null, null, null).
+2020-11-14 02:09:17.160 JST [8288] STATEMENT:  INSERT INTO "location"("line1", "line2", "station") VALUES (DEFAULT, DEFAULT, DEFAULT) RETURNING "id"
+2020-11-14 02:10:08.991 JST [8316] ERROR:  null value in column "line1" of relation "location" violates not-null constraint
+2020-11-14 02:10:08.991 JST [8316] DETAIL:  Failing row contains (69, null, null, null).
+2020-11-14 02:10:08.991 JST [8316] STATEMENT:  INSERT INTO "location"("line1", "line2", "station") VALUES (DEFAULT, DEFAULT, DEFAULT) RETURNING "id"
+2020-11-14 02:12:08.365 JST [8374] ERROR:  null value in column "line1" of relation "location" violates not-null constraint
+2020-11-14 02:12:08.365 JST [8374] DETAIL:  Failing row contains (70, null, null, null).
+2020-11-14 02:12:08.365 JST [8374] STATEMENT:  INSERT INTO "location"("line1", "line2", "station") VALUES (DEFAULT, DEFAULT, DEFAULT) RETURNING "id"
+2020-11-14 02:13:26.335 JST [8415] ERROR:  null value in column "line1" of relation "location" violates not-null constraint
+2020-11-14 02:13:26.335 JST [8415] DETAIL:  Failing row contains (71, null, null, null).
+2020-11-14 02:13:26.335 JST [8415] STATEMENT:  INSERT INTO "location"("line1", "line2", "station") VALUES (DEFAULT, DEFAULT, DEFAULT) RETURNING "id"
+2020-11-14 02:14:19.694 JST [8484] ERROR:  null value in column "line1" of relation "location" violates not-null constraint
+2020-11-14 02:14:19.694 JST [8484] DETAIL:  Failing row contains (72, null, null, null).
+2020-11-14 02:14:19.694 JST [8484] STATEMENT:  INSERT INTO "location"("line1", "line2", "station") VALUES (DEFAULT, DEFAULT, DEFAULT) RETURNING "id"

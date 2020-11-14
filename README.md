@@ -2,7 +2,7 @@
 marp: true
 ---
 
-# SSS(集合 Station Suggestion)
+# SSS(集合する Station Suggestion)
 
 by taku
 
@@ -23,6 +23,14 @@ GoTo 使って飲もう
 ---
 
 ## How to Use
+
+SSS
+
+1. Search
+
+1. Select
+
+1. Station
 
 ---
 
@@ -51,11 +59,16 @@ GoTo 使って飲もう
 
 ## Tech
 
-- server side
+- back end
 
   - express
   - TypeORM
   - postgresSQL
+
+- front end
+
+  - vue.js
+  - axios
 
 - Docs
 
@@ -65,9 +78,20 @@ GoTo 使って飲もう
 
 ## チャレンジした内容と直面した問題・苦労した点
 
-- そもそも実行 ← かなり辛かった。
+- そもそも実行。2 種類での実行シーケンスの理解が難しい。
+
   - curl での実行
   - chai での実行
+
+- CORS 対応
+
+  - サーバサイド：レスポンスヘッダで対応
+  - クライアント:ブラウザ拡張
+
+- はじめての技術
+
+  - typeORM の新規利用
+  - vue.js/axios
 
 ---
 
